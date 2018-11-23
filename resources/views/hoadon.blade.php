@@ -114,8 +114,11 @@
 
                                 <div class="col-md-4">
                                     <label class="form-control-label">Sản phẩm</label>
-                                    <input type="text" name="ten_sp" class="form-control typeahead" autocomplete="off"
-                                           placeholder="Sản phẩm đi ship" required>
+                                    <select class="form-control" id="select" name="ten_sp">
+                                        @foreach($addorder['san_pham'] as $v)
+                                            <option value="{{$v->id}}">{{$v->ten_sp}}</option>
+                                        @endforeach
+                                    </select>
                                 </div>
 
                                 <div class="col-md-1">
@@ -153,7 +156,7 @@
                                 <div class="col-md-3">
                                     <div class="form-group">
                                         <label class="form-control-label">Kênh bán hàng</label>
-                                        <select class="form-control" name="id_loaiship">
+                                        <select class="form-control" name="kenh_bh">
                                             @foreach($addorder['kenh_bh'] as $v)
                                                 <option value="{{$v->id}}">{{$v->ten_nguon}}</option>
                                             @endforeach
@@ -170,18 +173,12 @@
                                         </select>
                                     </div>
                                 </div>
-                                <div class="col-md-6">
+                                <div class="col-md-12">
                                     <label class="form-control-label">Ghi chú</label>
-                                    <input type="text" name="ghi_chu" class="form-control" placeholder="Ghi lại đỡ quên"
-                                           required>
+                                    <textarea name="ghi_chu" class="form-control" placeholder="Ghi lại đỡ quên"
+                                              required></textarea>
                                 </div>
-                                <div class="col-md-6">
-                                    <label class="form-control-label">Tổng Tiền</label>
-                                    <input type="text" name="gia_ban" id="getvalue" class="form-control"
-                                           placeholder="Nhập đầy đủ số tiền" autocomplete="off" required>
-                                    <p style="padding-top: 10px">Tổng tiền: <strong style="color:red"><span
-                                                    id="setresult">0 đ</span></label></p>
-                                </div>
+
 
 
                             </div>

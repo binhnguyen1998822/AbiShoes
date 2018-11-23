@@ -23,6 +23,14 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('hoadon', 'HoadonController@index')->name('hoadon');
 Route::post('hoadon', 'HoadonController@add')->name('hoadon');
 
+Route::get('tonkho', 'KhohangController@index')->name('tonkho');
+Route::post('tonkho', 'KhohangController@add')->name('tonkho');
+Route::post('tonkho/{id}', 'KhohangController@addslsp')->name('tonkho');
+Route::get('tonkho/{id}', 'KhohangController@view')->name('tonkho');
+
+Route::get('size', 'SizeController@index');
+
+
 Route::get('/logout', function () {
     Auth::logout();
     return redirect('home');

@@ -9,10 +9,11 @@ use App\Mausac;
 use App\Nguondon;
 use App\Sanpham;
 use App\Size;
+use App\Tonkho;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
 
-class HoadonController extends Controller
+class KhohangController extends Controller
 {
     /**
      * Create a new controller instance.
@@ -34,30 +35,35 @@ class HoadonController extends Controller
         $cachesearch =$request;
 
 
-        $hoadon = Hoadon::paginate(15);
+        $sanpham = Sanpham::paginate(15);
         $addorder = $this->addorder();
-        return view('hoadon',compact('cachesearch','hoadon','addorder'));
+        return view('khohang',compact('cachesearch','sanpham','addorder'));
+    }
+
+    public function view($id){
+        $sanpham = Sanpham::find($id);
+
+        return view('details.sanpham',compact('sanpham'));
     }
 
 
     public function add(Request $request){
-        $input = request()->except(['_token','myButton']);
-        $hoadon= new Hoadon();
-        $hoadon->ten_sp= $request->ten_sp;
-        $hoadon->ten_kh= $request->ten_kh;
-        $hoadon->so_dt= $request->so_dt;
-        $hoadon->dia_chi= $request->dia_chi;
-        $hoadon->size= $request->size;
-        $hoadon->mau_sac= $request->mau_sac;
-        $hoadon->id_loaiship= $request->id_loaiship;
-        $hoadon->dv_ship= $request->dv_ship;
-        $hoadon->ghi_chu= $request->ghi_chu;
-        $hoadon->gia_ban= $request->gia_ban;
-        $hoadon->kenh_bh= $request->kenh_bh;
-        $hoadon->trang_thai= 1;
-        $hoadon->save();
+        $sanphaam= new Sanpham();
+        $sanphaam->ten_sp= $request->ten_sp;
+        $sanphaam->ma_sp= $request->ma_sp;
+        $sanphaam->gia_nhap= $request->gia_nhap;
+        $sanphaam->gia_ban= $request->gia_ban;
+        $sanphaam->save();
         return back();
+    }
 
+    public function addslsp(Request $request){
+        $sanphaam= new Tonkho();
+        $sanphaam->id_sanpham= $request->id_sanpham;
+        $sanphaam->so_luong= $request->so_luong;
+        $sanphaam->size= $request->size;
+        $sanphaam->save();
+        return back();
     }
 
     public function addorder(){
@@ -67,7 +73,6 @@ class HoadonController extends Controller
         $return_arr['size'] = Size::get();
         $return_arr['mau_sac'] = Mausac::get();
         $return_arr['kenh_bh'] = Nguondon::get();
-        $return_arr['san_pham'] = Sanpham::get();
         return $return_arr;
     }
 }
