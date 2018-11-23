@@ -22,46 +22,42 @@
                     <div class="table-responsive">
                         <table id="testTable" class="table align-items-center table-flush">
                             <thead class="text-primary">
-                                <th>STT</th>
-                                <th>Tên sản phẩm</th>
-                                <th>Mã SP</th>
-                                <th>Giá bán</th>
-                                <th>Số lượng</th>
-                                <th>Size</th>
-                                <th>Tên KH</th>
-                                <th>SĐT</th>
-                                <th>Địa chỉ</th>
-                                <th>Nguồn</th>
-                                <th>Bên giao</th>
-                                <th>Mã VD</th>
-                                <th>Trạng thái</th>
-                                <th>Phí ship</th>
-                                <th>Ngày tạo</th>
-                                <th>TGHT</th>
-                                <th>Sửa</th>
+                            <th>STT</th>
+                            <th>Tên KH</th>
+                            <th>SĐT</th>
+                            <th>Địa chỉ</th>
+                            <th>Tên sản phẩm</th>
+                            <th>Size</th>
+                            <th>Nguồn</th>
+                            <th>Bên giao</th>
+                            <th>Mã VD</th>
+                            <th>Trạng thái</th>
+                            <th>Phí ship</th>
+                            <th>Giá bán</th>
+                            <th>Ngày tạo</th>
+                            <th>Hoàn thành</th>
+                            <th>Sửa</th>
                             </thead>
                             <tbody>
                             @foreach($hoadon as $d)
                                 <tr>
-                                <td>{{$d->id}}</td>
-                                <td>{{$d->ten_sp}}</td>
-                                <td>{{$d->ma_sp}}</td>
-                                <td>{{$d->gia_ban}}</td>
-                                <td>{{$d->mau_sac}}</td>
-                                <td>{{$d->sizes->size}}</td>
-                                <td>{{$d->ten_kh}}</td>
-                                <td>{{$d->so_dt}}</td>
-                                <td>{{$d->dia_chi}}</td>
-                                <td>{{$d->kenhbh->ten_nguon}}</td>
-                                <td>{{$d->dvship->ten_dv}}</td>
-                                <td>{{$d->ma_vd}}</td>
-                                <td>{{$d->trangthai->ten_trangthai}}</td>
-                                <td>{{$d->phi_ship}}</td>
-                                <td>{{$d->created_at}}</td>
-                                <td>{{$d->updated_at}}</td>
-                                <td></td>
+                                    <td>{{$d->id}}</td>
+                                    <td>{{$d->ten_kh}}</td>
+                                    <td>{{$d->so_dt}}</td>
+                                    <td style="max-width: 150px">{{$d->dia_chi}}</td>
+                                    <td style="max-width: 150px">{{$d->tensp->ten_sp}}</td>
+                                    <td>{{$d->sizes->size}}</td>
+                                    <td>{{$d->kenhbh->ten_nguon}}</td>
+                                    <td>{{$d->dvship->ten_dv}}</td>
+                                    <td>{{$d->ma_vd}}</td>
+                                    <td>{{$d->trangthai->ten_trangthai}}</td>
+                                    <td>{{$d->phi_ship}}</td>
+                                    <td>{{number_format($d->gia_ban)}} đ</td>
+                                    <td style="max-width: 90px">{{$d->created_at}}</td>
+                                    <td style="max-width: 90px">{{$d->updated_at}}</td>
+                                    <td>Sửa</td>
                                 </tr>
-                                @endforeach
+                            @endforeach
                             </tbody>
                         </table>
                     </div>
@@ -178,7 +174,6 @@
                                     <textarea name="ghi_chu" class="form-control" placeholder="Ghi lại đỡ quên"
                                               required></textarea>
                                 </div>
-
 
 
                             </div>

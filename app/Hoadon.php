@@ -28,4 +28,8 @@ class Hoadon extends Model
     {
         return $this->belongsTo('App\Dvship','dv_ship','id');
     }
+    public function tensp()
+    {
+        return $this->belongsTo('App\Sanpham','ten_sp','id');
+    }
 }

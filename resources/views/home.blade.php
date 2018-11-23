@@ -11,7 +11,7 @@
                             <div class="row">
                                 <div class="col">
                                     <h5 class="card-title text-uppercase text-muted mb-0">Đơn hàng</h5>
-                                    <span class="h2 font-weight-bold mb-0">0 đơn hàng</span>
+                                    <span class="h2 font-weight-bold mb-0">{{$analytics['tong_don']}} đơn hàng</span>
                                 </div>
                                 <div class="col-auto">
                                     <div class="icon icon-shape bg-warning text-white rounded-circle shadow">
@@ -20,7 +20,7 @@
                                 </div>
                             </div>
                             <p class="mt-3 mb-0 text-muted text-sm" style="font-weight: bold;">
-                                <span class="text-success mr-2">0 </span>
+                                <span class="text-success mr-2"> </span>
                             </p>
                         </div>
                     </div>
@@ -32,7 +32,7 @@
                             <div class="row">
                                 <div class="col">
                                     <h5 class="card-title text-uppercase text-muted mb-0">Doanh thu</h5>
-                                    <span class="h2 font-weight-bold mb-0">0 VND</span>
+                                    <span class="h2 font-weight-bold mb-0">{{number_format($analytics['doanh_thu'])}} VND</span>
                                 </div>
                                 <div class="col-auto">
                                     <div class="icon icon-shape bg-danger text-white rounded-circle shadow">
@@ -52,8 +52,8 @@
                         <div class="card-body">
                             <div class="row">
                                 <div class="col">
-                                    <h5 class="card-title text-uppercase text-muted mb-0">Hotline</h5>
-                                    <span class="h2 font-weight-bold mb-0">0 đơn hàng
+                                    <h5 class="card-title text-uppercase text-muted mb-0">Lợi nhuận</h5>
+                                    <span class="h2 font-weight-bold mb-0">{{number_format($analytics['loi_nhuan']->profit)}} VND
                                     </span>
                                 </div>
                                 <div class="col-auto">
@@ -63,7 +63,7 @@
                                 </div>
                             </div>
                             <p class="mt-3 mb-0 text-muted text-sm" style="font-weight: bold;">
-                                <span class="text-success mr-2">Hoa hồng : 0 đ</span>
+                                <span class="text-success mr-2"></span>
                                 <span class="text-nowrap"></span>
                             </p>
                         </div>

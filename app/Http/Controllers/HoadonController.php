@@ -41,7 +41,9 @@ class HoadonController extends Controller
 
 
     public function add(Request $request){
-        $input = request()->except(['_token','myButton']);
+
+        $sanpham = Sanpham::find($request->ten_sp);
+
         $hoadon= new Hoadon();
         $hoadon->ten_sp= $request->ten_sp;
         $hoadon->ten_kh= $request->ten_kh;
@@ -52,7 +54,8 @@ class HoadonController extends Controller
         $hoadon->id_loaiship= $request->id_loaiship;
         $hoadon->dv_ship= $request->dv_ship;
         $hoadon->ghi_chu= $request->ghi_chu;
-        $hoadon->gia_ban= $request->gia_ban;
+        $hoadon->gia_ban= $sanpham->gia_ban;
+        $hoadon->gia_nhap= $sanpham->gia_nhap;
         $hoadon->kenh_bh= $request->kenh_bh;
         $hoadon->trang_thai= 1;
         $hoadon->save();
