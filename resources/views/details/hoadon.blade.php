@@ -67,7 +67,7 @@
                                     <div class="col-lg-3">
                                         <div class="form-group">
                                             <label class="form-control-label" for="input-email">Size</label>
-                                            <input type="number" id="input-email"
+                                            <input type="text" id="input-email"
                                                    class="form-control form-control-alternative"
                                                    value="{{$hoadon->sizes->size}}" disabled>
                                         </div>
