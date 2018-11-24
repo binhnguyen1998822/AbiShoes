@@ -34,7 +34,7 @@ class HoadonController extends Controller
         $cachesearch =$request;
 
 
-        $hoadon = Hoadon::paginate(15);
+        $hoadon = Hoadon::orderBy('id','desc')->paginate(15);
         $addorder = $this->addorder();
         return view('hoadon',compact('cachesearch','hoadon','addorder'));
     }
