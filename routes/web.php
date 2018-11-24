@@ -19,7 +19,7 @@ Auth::routes();
 Route::get('/', function () {
     return redirect('home');
 });
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('home', 'HomeController@index')->name('home');
 Route::get('hoadon', 'HoadonController@index')->name('hoadon');
 Route::post('hoadon', 'HoadonController@add')->name('hoadon');
 
