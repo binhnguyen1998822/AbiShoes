@@ -56,7 +56,7 @@ class HomeController extends Controller
         $return_arr = [];
         $return_arr['tong_don'] = Hoadon::whereBetween('created_at', $tg)->count();
         $return_arr['doanh_thu'] = Hoadon::whereBetween('created_at', $tg)->sum('gia_ban');
-        $return_arr['loi_nhuan'] = Hoadon::whereBetween('created_at', $tg)->selectRaw('sum(gia_ban - gia_nhap) as profit')
+        $return_arr['loi_nhuan'] = Hoadon::whereBetween('created_at', $tg)->selectRaw('sum((gia_ban-gia_nhap)-phi_ship) as profit')
             ->first();;
         return $return_arr;
     }

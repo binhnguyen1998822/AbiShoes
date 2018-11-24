@@ -37,7 +37,7 @@
                                 <td>{{$d->ma_sp}}</td>
                                 <td>{{number_format($d->gia_nhap)}} đ</td>
                                 <td>{{number_format($d->gia_ban)}} đ</td>
-                                <td>{{$d->soluong->sum('so_luong')-$d->hoadon->count()}}</td>
+                                <td>{{$d->soluong->sum('so_luong')-$d->hoadon->sum('so_luong')}}</td>
                                 <td>{{$d->created_at}}</td>
                                 <td><a href="tonkho/{{$d->id}}">Xem</a> </td>
                                 </tr>

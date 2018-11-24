@@ -11,13 +11,9 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
 Auth::routes();
 Route::get('/', function () {
-    return redirect('home');
+    return redirect('hoadon');
 });
 Route::get('home', 'HomeController@index')->name('home');
 Route::get('hoadon', 'HoadonController@index')->name('hoadon');

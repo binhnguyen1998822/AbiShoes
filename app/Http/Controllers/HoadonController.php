@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Dvship;
 use App\Hoadon;
+use App\Hoadonmuti;
 use App\Loaiship;
 use App\Mausac;
 use App\Nguondon;
@@ -60,22 +61,35 @@ class HoadonController extends Controller
     {
 
         $sanpham = Sanpham::find($request->ten_sp);
+        $add = new Hoadon();
+        $add->trang_thai= 1;
+        $add->fill($request->except('_token'));
+        $add->save();
 
-        $hoadon = new Hoadon();
-        $hoadon->ten_sp = $request->ten_sp;
-        $hoadon->ten_kh = $request->ten_kh;
-        $hoadon->so_dt = $request->so_dt;
-        $hoadon->dia_chi = $request->dia_chi;
-        $hoadon->size = $request->size;
-        $hoadon->mau_sac = $request->mau_sac;
-        $hoadon->id_loaiship = $request->id_loaiship;
-        $hoadon->dv_ship = $request->dv_ship;
-        $hoadon->ghi_chu = $request->ghi_chu;
-        $hoadon->gia_ban = $sanpham->gia_ban;
-        $hoadon->gia_nhap = $sanpham->gia_nhap;
-        $hoadon->kenh_bh = $request->kenh_bh;
-        $hoadon->trang_thai = 1;
-        $hoadon->save();
+
+        //
+        $name =  $request->ten_sp;
+        $description =  $request->ten_sp;
+
+        if(count($name) > count($description))
+            $count = count($description);
+        else $count = count($name);
+
+
+        for($i = 0; $i < $count; $i++){
+            $sanpham = Sanpham::find($request->ten_sp[$i]);
+            $detail = new Hoadonmuti();
+            $detail->id_hd= $add->id;
+            $detail->id_sp = $request->ten_sp[$i];
+            $detail->size = $request->size[$i];
+            $detail->color = $request->mau_sac[$i];
+            $detail->so_luong = $request->so_luong[$i];
+            $detail->gia_ban = $sanpham->gia_ban;
+            $detail->gia_nhap = $sanpham->gia_nhap;
+            $detail->save();
+        }
+
+
         return back();
 
     }

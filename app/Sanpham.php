@@ -18,7 +18,7 @@ class Sanpham extends Model
 
     public function hoadon()
     {
-        return $this->hasMany('App\Hoadon','ten_sp','id');
+        return $this->hasMany('App\Hoadonmuti','id_sp','id');
     }
     public function sizes()
     {
