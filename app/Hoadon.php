@@ -32,4 +32,8 @@ class Hoadon extends Model
     {
         return $this->belongsTo('App\Sanpham','ten_sp','id');
     }
+    public function color()
+    {
+        return $this->belongsTo('App\Mausac','mau_sac','id');
+    }
 }

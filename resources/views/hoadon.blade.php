@@ -55,7 +55,7 @@
                                     <td>{{number_format($d->gia_ban)}} đ</td>
                                     <td style="max-width: 90px">{{$d->created_at}}</td>
                                     <td style="max-width: 90px">{{$d->updated_at}}</td>
-                                    <td>Sửa</td>
+                                    <td><a href="{{ asset('') }}hoadon/{{$d->id}}" class="btn btn-sm btn-primary">Sửa</a></td>
                                 </tr>
                             @endforeach
                             </tbody>

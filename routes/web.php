@@ -21,7 +21,9 @@ Route::get('/', function () {
 });
 Route::get('home', 'HomeController@index')->name('home');
 Route::get('hoadon', 'HoadonController@index')->name('hoadon');
+Route::get('hoadon/{id}', 'HoadonController@show')->name('hoadon');
 Route::post('hoadon', 'HoadonController@add')->name('hoadon');
+Route::post('hoadon/{id}', 'HoadonController@edit')->name('hoadon');
 
 Route::get('tonkho', 'KhohangController@index')->name('tonkho');
 Route::post('tonkho', 'KhohangController@add')->name('tonkho');
